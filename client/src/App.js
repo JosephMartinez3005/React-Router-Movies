@@ -3,6 +3,7 @@ import axios from 'axios';
 import {Route, Switch} from 'react-router-dom'
 import SavedList from './Movies/SavedList';
 import MovieList from './Movies/MovieList';
+import Movie from './Movies/Movie'
 
 
 export default function App () {
@@ -23,7 +24,7 @@ export default function App () {
     }
     getMovies();
   }, []);
-
+console.log(movieList)
   const addToSavedList = id => {
     // This is stretch. Prevent the same movie from being "saved" more than once
   };
@@ -32,7 +33,10 @@ export default function App () {
     <div>
       <SavedList list={[ /* This is stretch */]} />
       <div>
-        <Switch>
+      <Switch>
+      <Route path={`/movies/`}>
+        <Movie/>
+      </Route>
       <Route 
       exact
       path='/'>
